@@ -1,0 +1,24 @@
+<div class="mat-elevation-z8 tableclass">
+  <mat-table [dataSource]="datasource" matSort >
+    <ng-container matColumnDef="Artist">
+        <mat-header-cell *matHeaderCellDef >
+            <div mat-sort-header>
+                Artiste
+            </div>
+            <div  class="left-spacer">
+                <input type="text" class="form-control-plaintext filter" 
+                    placeholder="Filtrer par nom d'artiste" matInput [formControl]="artistFilter" matTooltip="Filtrer la liste par nom d'artiste">
+            </div>
+            <div class="left-spacer">
+                <i class="fa fa-plus icon-hover" (click)="addArtist()" matTooltip="Ajouter un artiste"></i>  
+            </div>
+        </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" 
+      (click)="onRowClicked(row)" ></mat-row>
+  </mat-table>
+  <mat-paginator #paginator [length]="totalCount" [pageIndex]="1" [pageSize]="10" [pageSizeOptions]="[8, 10, 12, 15, 25, 100]"></mat-paginator>
+</div>

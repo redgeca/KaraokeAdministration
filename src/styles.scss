@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootswatch/dist/lumen/_variables.scss";
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~bootswatch/dist/lumen/_bootswatch.scss";
+
+@import "variables";
+@import '../node_modules/font-awesome/scss/font-awesome.scss';
+
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+.tableclass {
+    margin: 5px;
+}
+

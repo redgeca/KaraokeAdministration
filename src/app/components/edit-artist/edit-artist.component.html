@@ -1,0 +1,25 @@
+<div class="mat-elevation-z8 tableclass">
+  <mat-card>
+      <mat-card-title></mat-card-title>
+  </mat-card>
+</div>
+
+<div class="mat-elevation-z8 tableclass">
+  <mat-table [dataSource]="songs" matSort >
+    <ng-container matColumnDef="Songs">
+        <mat-header-cell *matHeaderCellDef >
+            <div mat-sort-header>
+                Chansons
+            </div>
+            <div class="left-spacer">
+                <i class="fa fa-plus icon-hover" matTooltip="Ajouter un artiste"></i>  
+            </div>
+        </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.title }} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator #paginator [length]="totalCount" [pageIndex]="1" [pageSize]="10" [pageSizeOptions]="[8, 10, 12, 15, 25, 100]"></mat-paginator>
+</div>
