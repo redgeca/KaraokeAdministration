@@ -14,8 +14,8 @@ import { Router } from '@angular/router';
 })
 export class ArtistsComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  @ViewChild(MatPaginator) paginatorControl: MatPaginator;
-  @ViewChild(MatSort) sortControl : MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginatorControl: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sortControl : MatSort;
   artistSubscripotion : Subscription;
   artistFilter: FormControl = new FormControl();
   loading: Boolean = false;
