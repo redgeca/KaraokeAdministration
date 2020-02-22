@@ -1,0 +1,32 @@
+.mat-row {
+    cursor: pointer;
+}
+
+.mat-row:hover {
+    background-color: lightgray;
+}
+
+.icon-hover {
+    cursor: pointer;
+    padding: 5px;
+    font-size: larger;
+}
+
+.icon-hover:hover {
+    background-color: lightgrey;
+}
+
+.filter {
+    width: 300px;
+    border: 1px solid;
+    padding: 2px;
+}
+
+.tableclass {
+    margin: 5px;
+}
+
+.left-spacer {
+    padding-left: 15px;
+}
+

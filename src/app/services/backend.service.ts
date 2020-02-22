@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { Artist } from '../interfaces/artist';
-import { Observable } from 'rxjs'; 
 import { Category } from '../interfaces/category';
 import {  Song } from '../interfaces/song';
 
@@ -36,7 +35,9 @@ export class BackendService {
       .set('page', page.toString())
       .set('pageSize', pageSize.toString());
     const options = { params: parameters, headers: jsonHeader }; 
-    return this.http.get<Song[]>(songUrl, options)
+    return this.http.get<Song[]>(songUrl, {
+      params: parameters, observe: 'response', headers: jsonHeader
+    });
   }
 
   getCategories(filter='', orderBy='', page=1, pageSize=10) {
@@ -46,11 +47,17 @@ export class BackendService {
       .set('page', page.toString())
       .set('pageSize', pageSize.toString());
     const options = { params: parameters, headers: jsonHeader }; 
-    return this.http.get<Category[]>(categoryUrl, options)
+    return this.http.get<Category[]>(categoryUrl, {
+      params: parameters, observe: 'response', headers: jsonHeader
+    });
   }
 
   getArtist(id) {
-      return this.http.get<Artist>(artistUrl + '/' + id);
-  }
+    return this.http.get<Artist>(artistUrl + '/' + id);
+}
+
+  getCategory(id) {
+  return this.http.get<Category>(categoryUrl + '/' + id);
+}
 
 }

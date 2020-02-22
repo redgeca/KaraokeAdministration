@@ -1,6 +1,6 @@
 <div class="mat-elevation-z8 tableclass">
   <mat-card>
-      <mat-card-title></mat-card-title>
+      <mat-card-title>{{artist.name}}  ({{totalCount}} chansons)</mat-card-title>
   </mat-card>
 </div>
 
@@ -21,5 +21,5 @@
     <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
-  <mat-paginator #paginator [length]="totalCount" [pageIndex]="1" [pageSize]="10" [pageSizeOptions]="[8, 10, 12, 15, 25, 100]"></mat-paginator>
+
 </div>

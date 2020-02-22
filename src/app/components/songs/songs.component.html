@@ -1,3 +1,24 @@
-<p>
-  songs works!
-</p>
+<div class="mat-elevation-z8 tableclass">
+  <mat-table [dataSource]="datasource" matSort >
+    <ng-container matColumnDef="Song">
+        <mat-header-cell *matHeaderCellDef >
+            <div mat-sort-header>
+                Chanson
+            </div>
+            <div  class="left-spacer">
+                <input type="text" class="form-control-plaintext filter" 
+                    placeholder="Filtrer par titre" matInput [formControl]="songFilter" matTooltip="Filtrer la liste par titre">
+            </div>
+            <div class="left-spacer">
+                <i class="fa fa-plus icon-hover" (click)="addSong()" matTooltip="Ajouter une chanson"></i>  
+            </div>
+        </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" 
+      (click)="onRowClicked(row)" ></mat-row>
+  </mat-table>
+  <mat-paginator #paginator [length]="totalCount" [pageIndex]="1" [pageSize]="10" [pageSizeOptions]="[8, 10, 12, 15, 25, 100]"></mat-paginator>
+</div>

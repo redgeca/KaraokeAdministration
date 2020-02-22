@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit } from '@angular/core'
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BackendService } from 'src/app/services/backend.service';
 import { Artist } from 'src/app/interfaces/artist';
@@ -9,6 +10,8 @@ import { Artist } from 'src/app/interfaces/artist';
   styleUrls: ['./edit-artist.component.scss']
 })
 export class EditArtistComponent implements OnInit {
+  @ViewChild(MatPaginator, { static: true }) paginatorControl: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sortControl : MatSort;
   artist: Artist;
   songs = [];
   displayedColumns = ['Songs']

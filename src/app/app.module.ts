@@ -17,6 +17,7 @@ import { SongsComponent } from './components/songs/songs.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { ReindexComponent } from './components/reindex/reindex.component';
 import { EditArtistComponent } from './components/edit-artist/edit-artist.component';
+import { EditCategoryComponent } from './components/edit-category/edit-category.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { EditArtistComponent } from './components/edit-artist/edit-artist.compon
     CategoriesComponent,
     ReindexComponent,
     EditArtistComponent,
+    EditCategoryComponent,
   ],
   imports: [
     BrowserModule,
